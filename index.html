@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maruf Alam Rahat - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F5F6F5;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background: linear-gradient(to right, #968f8f, #ffffff);
+            box-shadow: 0 4px 6px rgba(43, 43, 43, 0.1);
+            padding: 20px 0;
+        }
+        .navbar a {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: #000000;
+        }
+        .navbar a:hover {
+            color: #000000;
+        }
+        .header-bg {
+            background: url('img/portfolio_img3.png') no-repeat center center/cover;
+            height: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            color: #FFFFFF;
+            overflow: hidden;
+        }
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .header-bg > * {
+            position: relative;
+            z-index: 2;
+        }
+        .header-bg h1 {
+            padding-top: 20px;
+            padding-bottom: 60px;
+            font-family: "Lobster Two", sans-serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 58px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            margin-top: 30px;
+        }
+        .header-bg p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .btn-primary {
+            background-color: transparent;
+            color: #FFFFFF;
+            padding: 12px 24px;
+            border: 1px solid #FFFFFF;
+            border-radius: 0px;
+            text-decoration: none;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .btn-primary:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .social-icon {
+            font-size: 24px;
+            margin: 0 12px;
+            transition: color 0.3s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
+        .social-icon:hover {
+            color: #cccccc;
+        }
+        .letter {
+            opacity: 0;
+            display: inline-block;
+            animation: letterAppear 0.1s forwards;
+        }
+        @keyframes letterAppear {
+            to {
+                opacity: 1;
+            }
+        }
+        .fade-in {
+            opacity: 1 !important;
+        }
+        .section {
+            padding: 80px 20px;
+        }
+        .section h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #003087;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .card {
+            background: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .card.animated {
+            transform: translateX(0);
+            opacity: 1;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #003087;
+            margin-bottom: 8px;
+        }
+        .card p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            color: #4B5563;
+            margin-bottom: 8px;
+        }
+        .skills-section {
+            background: url('img/skill3.jpg') no-repeat center center/cover;
+            color: #FFFFFF;
+            position: relative;
+            margin-top: 50px;
+        }
+        .skills-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .skills-section > * {
+            position: relative;
+            z-index: 2;
+        }
+        .skill-item {
+            margin-bottom: 16px;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .skill-item.animated {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .skill-item span {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+        .skill-bar {
+            background-color: #fafcff;
+            border-radius: 9999px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .skill-bar div {
+            background-color: #00fdfd;
+            height: 100%;
+            transition: width s ease-in-out;
+        }
+        .services-section {
+            background-color: #FFFFFF;
+        }
+        .service-card {
+            background: #F5F6F5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        .service-card.animated {
+            transform: translateX(0);
+            opacity: 1;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .service-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .service-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #003087;
+            margin: 16px 0 8px;
+        }
+        .service-card p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: #4B5563;
+        }
+        .service-card .price {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #0051BA;
+        }
+        .journey-section {
+            background: url('img/bg1.jpg') no-repeat center center/cover;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            color: #FFFFFF;
+            position: relative;
+            margin-top: 50px;
+        }
+        .journey-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+        .journey-section .container {
+            position: relative;
+            z-index: 1;
+        }
+        .journey-section h2 {
+            color: #FFFFFF;
+        }
+        .journey-section p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.8;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .journey-section p.animated {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .contact-section {
+            margin-top: 200px;
+            background: url(img/E1.jpg) no-repeat center center/cover;
+            color: #FFFFFF;
+        }
+        .contact-section h2 {
+            color: #FFFFFF;
+        }
+        .contact-section input,
+        .contact-section textarea {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            background-color: #1F2937;
+            border: 1px solid #4B5563;
+            color: #FFFFFF;
+        }
+        .contact-section button {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .contact-section .contact-details h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #FFFFFF;
+        }
+        .contact-section .contact-details p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            margin-bottom: 8px;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .contact-section .contact-details p.animated {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .contact-section .contact-details a {
+            color: #60A5FA;
+        }
+        .footer {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            color: #D1D5DB;
+        }
+        .footer .social-icon {
+            font-size: 20px;
+        }
+        .animate-zoomIn {
+            animation: zoomIn 1s ease-in-out;
+        }
+        .animate-slideDown {
+            animation: slideDown 1s ease-in-out;
+        }
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .hero-bg {
+            background: url('img/portfolio_img2.png') no-repeat center center/cover;
+            height: 1600px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            color: #FFFFFF;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-bg > * {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-bg p {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .hero-bg .btn-primary {
+            margin-top: 20px;
+        }
+        .swiper {
+            width: 100%;
+            padding: 20px 0;
+        }
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px !important;
+            overflow: hidden;
+        }
+        .swiper-slide img {
+            width: 80%;
+            height: 100%;
+            object-fit: cover;
+            border: 4px solid #000000;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .swiper-slide img.animated {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .swiper-slide h3 {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .swiper-slide h3.animated {
+            transform: translateX(-50%);
+            opacity: 1;
+        }
+        .swiper-slide h2 {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        .swiper-slide h2.animated {
+            transform: translateX(-50%);
+            opacity: 1;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+        }
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px;
+        }
+        .swiper-pagination-bullet {
+            background: #ffffff;
+            opacity: 0.7;
+        }
+        .swiper-pagination-bullet-active {
+            background: #60A5FA;
+            opacity: 1;
+        }
+        @media (max-width: 768px) {
+            .header-bg {
+                height: 500px;
+            }
+            .header-bg h1 {
+                font-size: 36px;
+            }
+            .header-bg p {
+                font-size: 20px;
+            }
+            .hero-bg {
+                height: 700px;
+            }
+            .hero-bg p {
+                font-size: 20px;
+            }
+            .navbar .container {
+                flex-direction: column;
+            }
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: block;
+            }
+            .mobile-menu a {
+                color: #FFFFFF;
+            }
+            .section .grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-section .grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-section .pl-10 {
+                padding-left: 0;
+            }
+            .swiper-slide {
+                height: 300px !important;
+            }
+            .swiper-slide img {
+                width: 100%;
+            }
+            .swiper-slide h3 {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar fixed w-full z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-wide">Maruf Alam Rahat</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#education" class="hover:text-gray-300 transition">Education</a>
+                <a href="#experience" class="hover:text-gray-300 transition">Experience</a>
+                <a href="#certifications" class="hover:text-gray-300 transition">Certifications</a>
+                <a href="#skills" class="hover:text-gray-300 transition">Skills</a>
+                <a href="#services" class="hover:text-gray-300 transition">Services</a>
+                <a href="#journey" class="hover:text-gray-300 transition">My Journey</a>
+                <a href="#contact" class="hover:text-gray-300 transition">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="mobile-menu md:hidden mt-2 space-y-2 text-center bg-transparent rounded-lg p-2">
+            <a href="#education" class="block hover:text-gray-300 transition">Education</a>
+            <a href="#experience" class="block hover:text-gray-300 transition">Experience</a>
+            <a href="#certifications" class="block hover:text-gray-300 transition">Certifications</a>
+            <a href="#skills" class="block hover:text-gray-300 transition">Skills</a>
+            <a href="#services" class="block hover:text-gray-300 transition">Services</a>
+            <a href="#journey" class="block hover:text-gray-300 transition">My Journey</a>
+            <a href="#contact" class="block hover:text-gray-300 transition">Contact</a>
+        </div>
+    </nav>
+    <header class="header-bg">
+        <div class="container mx-auto px-4">
+            <h1 id="header-title">Hi, I am Rahat. Welcome to my portfolio!</h1>
+            <p>Web Developer | Information Advocate | Library Professional | Content Writer</p>
+            <div class="mt-8">
+                <a href="ahasanarian@gmail.com" class="social-icon hover:text-red-600"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com" class="social-icon hover:text-red-600"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://facebook.com" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <a href="#contact" class="btn-primary mt-8 inline-block">Contact Me</a>
+        </div>
+    </header>
+    <section id="education" class="section bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="animate-slideDown"><i class="fas fa-graduation-cap mr-2"></i>Education</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card animate-fadeIn overflow-hidden">
+                    <img src="img/portfolio_img7.jpg" alt="Masters Image" class="w-full h-96 object-cover">
+                    <div class="p-4">
+                        <h3>Masters in Information Science & Library Management</h3>
+                        <p>Noakhali Science and Technology University</p>
+                        <p>December 2023 - December 2024</p>
+                        <p>CGPA: 3.25 out of 4 | Passing Year: 2025</p>
+                    </div>
+                </div>
+                <div class="card animate-fadeIn overflow-hidden" style="animation-delay: 0.2s;">
+                    <img src="img/portfolio_img5.jpg" alt="Bachelor Image" class="w-full h-96 object-cover">
+                    <div class="p-4">
+                        <h3>Bachelor in Information Science & Library Management</h3>
+                        <p>Noakhali Science and Technology University</p>
+                        <p>December 2018 - December 2022</p>
+                        <p>CGPA: 3.32 out of 4 | Passing Year: 2023</p>
+                    </div>
+                </div>
+                <div class="card animate-fadeIn overflow-hidden" style="animation-delay: 0.4s;">
+                    <img src="img/portfolio_img4.jpg" alt="HSC Image" class="w-full h-96 object-cover">
+                    <div class="p-4">
+                        <h3>Higher Secondary Certificate (Science)</h3>
+                        <p>Dhaka Board</p>
+                        <p>2016 - 2018</p>
+                        <p>GPA: 4.33 out of 5.00</p>
+                    </div>
+                </div>
+                <div class="card animate-fadeIn overflow-hidden" style="animation-delay: 0.6s;">
+                    <img src="img/portfolio_img8.jpg" alt="SSC Image" class="w-full h-96 object-cover">
+                    <div class="p-4">
+                        <h3>Secondary School Certificate (Science)</h3>
+                        <p>Dhaka Board</p>
+                        <p>2006 - 2016</p>
+                        <p>GPA: 5.00 out of 5.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="experience" class="section">
+        <div class="container mx-auto px-4">
+            <h2 class="animate-slideDown"><i class="fas fa-briefcase mr-2"></i>Professional Experiences</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card animate-fadeIn overflow-hidden">
+                    <img src="img/EDU.png" alt="Library Executive" class="w-full h-96 object-cover">
+                    <div class="p-4">
+                        <h3>Library Executive <span class="text-blue-500">@ East Delta University</span></h3>
+                        <p>June 2025 - Present</p>
+                        <p>Responsible for daily library circulation, student management, and cataloguing services using the Koha Library Management System.</p>
+                    </div>
+                </div>
+                <div class="card animate-fadeIn overflow-hidden" style="animation-delay: 0.2s;">
+                    <img src="img/BDE.jpg" alt="Carnival Mart" class="w-full h-96 object-cover">
+                    <div class="p-4">
+                        <h3>Business Development Executive <span class="text-blue-500">@ Carnival Mart</span></h3>
+                        <p>Feb 2025 - May 2025</p>
+                        <p>Developed strategies to enhance sales performance and improve client relationships.</p>
+                    </div>
+                </div>
+                <div class="card animate-fadeIn overflow-hidden" style="animation-delay: 0.4s;">
+                    <img src="img/freelance.jpg" alt="Freelance Content Writer" class="w-full h-96 object-cover">
+                    <div class="p-4">
+                        <h3>Freelance English Content Writer <span class="text-blue-500">@ Remote</span></h3>
+                        <p>2022 - 2023</p>
+                        <p>Crafted engaging content for various platforms, enhancing brand visibility and audience engagement.</p>
+                    </div>
+                </div>
+                <div class="card animate-fadeIn overflow-hidden" style="animation-delay: 0.6s;">
+                    <img src="img/tutor.jpg" alt="Private Tutor" class="w-full h-96 object-cover">
+                    <div class="p-4">
+                        <h3>Private Tutor <span class="text-blue-500">@ home & online</span></h3>
+                        <p>2022 - 2023</p>
+                        <p>Taught Science, Mathematics, and English to high school students, focusing on exam preparation and concept development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="hero" class="hero-bg">
+        <div class="container mx-auto px-4">
+            <p>Connecting people with knowledge, one digital resource at a time</p>
+            <a href="#certifications" class="btn-primary inline-block">Explore More</a>
+        </div>
+    </section>
+    <section id="certifications" class="section py-12 bg-transparent">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6 text-white animate-slideDown">
+                <i class="fas fa-certificate mr-2"></i>Certificates & Training
+            </h2>
+            <div class="swiper mySwiper py-8">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide relative rounded-xl overflow-hidden shadow-md flex justify-center">
+                        <img src="img/bansdoc.png" alt="Internship at BANSDOC" class="h-full object-cover">
+                    </div>
+                    <div class="swiper-slide relative rounded-xl overflow-hidden shadow-md flex justify-center">
+                        <img src="img/typing.png" alt="Typing Skills Certificate" class="h-full object-cover">
+                        <h3>Typing Skills Certificate : 50 WORDS PER MINUTE</h3>
+                    </div>
+                    <div class="swiper-slide relative rounded-xl overflow-hidden shadow-md flex justify-center">
+                        <img src="img/ielts.jpg" alt="Typing Skills Certificate" class="h-full object-cover">
+                        <h3>IELTS Test Certificate : OVERALL BAND 7</h3>
+                    </div>
+                    <div class="swiper-slide relative rounded-xl overflow-hidden shadow-md flex justify-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Computer_litaracy.jpg/640px-Computer_litaracy.jpg" alt="Computer Training Certificate" class="h-full object-cover">
+                        <h2>Computer training certificate</h2>
+                        <h3>Successfully completed a 4-month Computer Training Course that covered Microsoft Office (Word, Excel, PowerPoint), Windows and Linux operating systems, Advanced Excel, and techniques for fast and effective web browsing.</h3>
+                    </div>
+                    <div class="swiper-slide relative rounded-xl overflow-hidden shadow-md flex justify-center">
+                        <img src="img/python.png" alt="Computer Training Certificate" class="h-full object-cover">
+                        <h3>Completed a Python training course that covered Pandas for data analysis, Web Scraping techniques, Flask for web development, and Object-Oriented Programming (OOP).</h3>
+                    </div>
+                </div>
+                <div class="swiper-button-next text-white"></div>
+                <div class="swiper-button-prev text-white"></div>
+                <div class="swiper-pagination mt-4"></div>
+            </div>
+        </div>
+    </section>
+    <section id="skills" class="section skills-section">
+        <div class="container mx-auto px-4">
+            <h2 style="color: white;" class="animate-slideDown"><i class="fas fa-tools mr-2 text-green-300"></i> Skills & Expertise</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="skill-item animate-fadeIn">
+                    <div class="flex justify-between mb-2">
+                        <span><i class="fas fa-language mr-2 text-green-300"></i> Strong English (Spoken & Written)</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar"><div style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item animate-fadeIn" style="animation-delay: 0.2s;">
+                    <div class="flex justify-between mb-2">
+                        <span><i class="fas fa-laptop-code mr-2 text-green-300"></i> Microsoft Office (Word, PowerPoint, Excel)</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar"><div style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item animate-fadeIn" style="animation-delay: 0.4s;">
+                    <div class="flex justify-between mb-2">
+                        <span><i class="fas fa-palette mr-2 text-green-300"></i> Web Design</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="skill-bar"><div style="width: 65%;"></div></div>
+                </div>
+                <div class="skill-item animate-fadeIn" style="animation-delay: 0.6s;">
+                    <div class="flex justify-between mb-2">
+                        <span><i class="fas fa-keyboard mr-2 text-green-300"></i> Typing (60-70 WPM)</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar"><div style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item animate-fadeIn" style="animation-delay: 0.8s;">
+                    <div class="flex justify-between mb-2">
+                        <span><i class="fas fa-pen-nib mr-2 text-green-300"></i> Content Writing & Data analysis - SPSS, EXCEL</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar"><div style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item animate-fadeIn" style="animation-delay: 1s;">
+                    <div class="flex justify-between mb-2">
+                        <span><i class="fas fa-search mr-2 text-green-300"></i> Web Research, SEO , Email Marketing</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar"><div style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-item animate-fadeIn" style="animation-delay: 1.2s;">
+                    <div class="flex justify-between mb-2">
+                        <span><i class="fas fa-chalkboard-teacher mr-2 text-green-300"></i> Teaching </span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar"><div style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-item animate-fadeIn" style="animation-delay: 1.4s;">
+                    <div class="flex justify-between mb-2">
+                        <span><i class="fas fa-code mr-2 text-green-300"></i> Python, Web Scraping, Web Development</span>
+                        <span>55%</span>
+                    </div>
+                    <div class="skill-bar"><div style="width: 55%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="section services-section">
+        <div class="container mx-auto px-4">
+            <h2 class="animate-slideDown">Services</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="service-card animate-fadeIn">
+                    <img src="img/service1.jpg" alt="Content Creation" class="w-full">
+                    <div class="p-6">
+                        <h3>Create Impactful Content Across Platforms</h3>
+                        <p>Loading...</p>
+                    </div>
+                </div>
+                <div class="service-card animate-fadeIn" style="animation-delay: 0.2s;">
+                    <img src="img/service2.jpg" alt="Digital Libraries" class="w-full">
+                    <div class="p-6">
+                        <h3>Explore the World of Libraries and Digital Collections</h3>
+                        <p>Loading...</p>
+                    </div>
+                </div>
+                <div class="service-card animate-fadeIn" style="animation-delay: 0.4s;">
+                    <img src="img/service3.png" alt="Web Development" class="w-full">
+                    <div class="p-6">
+                        <h3>Build Functional and Stunning Websites</h3>
+                        <p>Loading....</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="journey" class="section journey-section">
+        <div class="container mx-auto px-8 py-16 grid md:grid-cols-2 gap-10 items-center">
+            <div class="flex justify-center">
+                <img src="img/portfolio_img1.png" 
+                     alt="Maruf Alam Rahat Journey" 
+                     class="rounded-2xl shadow-lg border-4 border-white w-96 h-auto object-cover">
+            </div>
+            <div class="text-left text-white">
+                <h2 class="text-4xl font-bold mb-6 animate-slideDown">My Professional Journey</h2>
+                <p class="mb-4 animate-fadeIn">
+                    My professional journey brings together my skills as a librarian, web content writer, and web designer.
+                    I enjoy combining knowledge, creativity, and technology—whether it’s managing libraries and digital resources, 
+                    writing clear and engaging content, or designing websites that are easy to use. My goal is to make information more accessible and useful while continuing to grow as a creative and forward-looking professional.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section contact-section">
+        <div class="container mx-auto px-4">
+            <h2 class="animate-slideDown">Get In Touch</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <div class="space-y-4">
+                        <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <input type="text" placeholder="Your Phone" class="w-full px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <textarea placeholder="Write a Message" rows="5" class="w-full px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+                        <button type="button" 
+                                class="px-6 py-3 border-2 border-white text-white bg-transparent rounded-md 
+                                hover:bg-white hover:text-blue-900 transition font-semibold">
+                            SEND MESSAGE
+                        </button>
+                    </div>
+                </div>
+                <div style="padding-left: 150px;" class="contact-details pl-10">
+                    <h3>My Contact Details</h3>
+                    <p><span class="font-semibold">Email:</span> <a href="mailto:ahasanarian@gmail.com" class="hover:underline"><strong>ahasanarian@gmail.com</strong></a></p>
+                    <p><span class="font-semibold">Phone:</span> +00 XXXXXXXXX</p>
+                    <p><span class="font-semibold">Fax:</span> +00 XXXXXXXXX</p>
+                    <p><span class="font-semibold">Address:</span>Feni,3930. Chitagong Division</p>
+                    <p>Bangladesh</p>
+                </div>
+            </div>
+            <div class="footer text-center mt-10">
+                <p>Copyright © 2025 <span class="text-blue-600"><strong>Maruf Alam Rahat.</strong></span> All rights reserved. ❤️</p>
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="#" class="social-icon hover:text-red-600"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon hover:text-blue-500"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon hover:text-red-900"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon hover:text-blue-800"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-icon hover:text-red-700"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            // Toggle between hamburger and close icon
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Function to animate h1 letters one by one, preserving spaces
+        function animateTitle() {
+            const title = document.getElementById('header-title');
+            const text = title.textContent;
+            title.textContent = '';
+            title.style.opacity = '1';
+
+            text.split('').forEach((char, index) => {
+                const span = document.createElement('span');
+                span.classList.add('letter');
+                if (char === ' ') {
+                    span.classList.add('space');
+                    span.innerHTML = '&nbsp;';
+                } else {
+                    span.textContent = char;
+                }
+                span.style.animationDelay = `${index * 0.1}s`;
+                title.appendChild(span);
+            });
+
+            const totalAnimationTime = text.length * 100 + 500;
+
+            setTimeout(() => {
+                document.querySelector('.header-bg p').classList.add('fade-in');
+                document.querySelectorAll('.header-bg .social-icon').forEach(icon => icon.classList.add('fade-in'));
+                document.querySelector('.header-bg .btn-primary').classList.add('fade-in');
+                document.querySelector('.hero-bg p').classList.add('fade-in');
+                document.querySelector('.hero-bg .btn-primary').classList.add('fade-in');
+            }, totalAnimationTime);
+        }
+
+        // Trigger animations on page load
+        window.addEventListener('load', animateTitle);
+
+        // Scroll animations for sections
+        function animateSections() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8) {
+                    section.querySelector('h2').classList.add('animate-slideDown');
+                    section.querySelectorAll('.card, .service-card, p, .contact-details p, .swiper-slide img, .swiper-slide h3, .skill-item').forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('animated');
+                        }, index * 100);
+                    });
+                }
+            });
+        }
+
+        // Swiper initialization for certifications carousel
+        const swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 10000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        window.addEventListener('scroll', animateSections);
+        animateSections();
+
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-bar div');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bar = entry.target;
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        skillBars.forEach(bar => skillObserver.observe(bar));
+    </script>
+</body>
+</html>
